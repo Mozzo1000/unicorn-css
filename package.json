@@ -1,0 +1,43 @@
+{
+  "name": "unicorn-css",
+  "version": "1.0.0",
+  "description": "A magical CSS framework",
+  "main": "unicorn-css.sass",
+  "style": "unicorn-css/css/unicorn-css.min.css",
+  "scripts": {
+    "build": "npm run build-sass && npm run build-autoprefix && npm run build-cleancss",
+    "build-autoprefix": "postcss --use autoprefixer --map false --output css/unicorn-css.css css/unicorn-css.css",
+    "build-cleancss": "cleancss -o css/unicorn-css.min.css css/unicorn-css.css",
+    "build-sass": "sass unicorn-css.sass css/unicorn-css.css",
+    "clean": "rimraf css",
+    "deploy": "npm run clean && npm run build",
+    "start": "npm run build-sass -- --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Mozzo1000/unicorn-css.git"
+  },
+  "keywords": [
+    "css",
+    "sass",
+    "framework"
+  ],
+  "author": "Andreas Backström",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/Mozzo1000/unicorn-css/issues"
+  },
+  "homepage": "https://github.com/Mozzo1000/unicorn-css#readme",
+  "devDependencies": {
+    "autoprefixer": "^10.2.5",
+    "clean-css-cli": "^5.2.2",
+    "postcss-cli": "^8.3.1",
+    "rimraf": "^3.0.2",
+    "sass": "^1.32.8"
+  },
+  "files": [
+    "css",
+    "sass",
+    "unicorn-css.sass"
+  ]
+}
