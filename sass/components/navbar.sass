@@ -1,0 +1,59 @@
+$navbar-height: 3.25rem !default
+$navbar-item-padding: 1em !default
+$navbar-item-hover-background-color: $white-bis !default
+
+.navbar
+    position: relative
+    width: 100%
+    min-height: $navbar-height
+    background: $white
+    display: inline-grid
+    grid-row: 1
+    grid-template-columns: 1fr 2fr 1fr
+    justify-items: start
+    grid-template-areas: "logo start end"
+    align-items: center
+
+    &.navbar-logo
+        grid-area: logo
+    &.navbar-start
+        grid-area: start
+        align-items: start
+    .navbar-end
+        grid-area: end
+        place-self: right
+        justify-self: end
+
+
+.navbar-dropdown
+    display: none
+    position: absolute
+    background-color: $white
+    border-bottom-right-radius: 0.5em
+    border-bottom-left-radius: 0.5em
+    min-width: 160px
+    z-index: 1
+    .navbar-item
+        display: block
+
+.navbar-item
+    order: 1
+    padding: $navbar-item-padding
+    &.has-dropdown
+        display: inline-grid
+        &:hover .navbar-dropdown
+            margin-top: $navbar-item-padding + 1.15em
+            display: block
+            margin-left: -$navbar-item-padding
+            overflow: hidden
+        &:hover
+            background-color: $navbar-item-hover-background-color   
+
+a.navbar-item
+    text-decoration: none
+    &:link
+        color: $grey-dark
+    &:hover
+        background-color: $navbar-item-hover-background-color
+    &.is-active
+        text-decoration: underline
